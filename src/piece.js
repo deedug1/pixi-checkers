@@ -9,11 +9,10 @@ pieceTemplate.endFill();
 
 export class Piece extends PIXI.Graphics {
 
-    constructor(geometry=pieceTemplate.geometry) {
+    constructor(geometry) {
         super(geometry);
         Draggable.addDragInteraction(this);
     }
-
 
 
 }

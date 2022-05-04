@@ -29,6 +29,10 @@ export class Draggable extends PIXI.DisplayObject {
         obj.dragging = 0;
         obj.dragData = null;
         // set the interaction data to null
+
+        if(obj.onDragEnd) {
+            obj.onDragEnd();
+        }
     }
     
     static onDragMove(event) {
