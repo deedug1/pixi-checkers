@@ -1,22 +1,19 @@
+import { Draggable } from "./draggable.js";
 import * as PIXI from "./pixi.js";
-import { ReusableGraphic } from "./reusableGraphic.js";
+
+const pieceTemplate = new PIXI.Graphics();
+pieceTemplate.beginFill(0x0000FF);
+pieceTemplate.drawCircle(0, 0, 25);
+pieceTemplate.endFill();
 
 
-export class Piece extends ReusableGraphic {
+export class Piece extends PIXI.Graphics {
 
-    constructor() {
-        super();
-
+    constructor(geometry=pieceTemplate.geometry) {
+        super(geometry);
+        Draggable.addDragInteraction(this);
     }
 
-    generateGraphic() {
-        const pieceGraphic = new PIXI.Graphics();
 
-        pieceGraphic.beginFill(0xFF0000);
-        pieceGraphic.drawCircle(0, 0, 20);
-        pieceGraphic.endFill();
 
-        return pieceGraphic;
-
-    }
 }
