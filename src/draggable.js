@@ -20,6 +20,9 @@ export class Draggable extends PIXI.DisplayObject {
         obj.dragObjStart.copyFrom(obj.position);
         obj.dragGlobalStart = new PIXI.Point();
         obj.dragGlobalStart.copyFrom(event.data.global);
+        if(obj.onDragStart) {
+            obj.onDragStart();
+        }
     }
     
     static onDragEnd(event) {
